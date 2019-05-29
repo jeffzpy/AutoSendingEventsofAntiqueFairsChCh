@@ -1,0 +1,179 @@
+﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="WechatDetect" mva:VisualBasic.Settings="{x:Null}" sap2010:WorkflowViewState.IdRef="WechatDetect_1"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:ui="http://schemas.uipath.com/workflow/activities"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="WechatDetect" sap2010:WorkflowViewState.IdRef="Sequence_2">
+    <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window 'WeChat.exe  WeChat'" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="52192bd8f9a5b47f5097f3ff7bdd4d71" Selector="&lt;wnd omit:app='wechat.exe' cls='WeChatMainWndForPC' title='WeChat' /&gt;">
+      <ui:WindowScope.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+          </ActivityAction.Argument>
+          <Sequence>
+            <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_1">
+              <Sequence.Variables>
+                <Variable x:TypeArguments="x:Boolean" Name="ifWeChatsEnabled" />
+              </Sequence.Variables>
+              <ui:ShowWindow Window="{x:Null}" DisplayName="Show Window" sap2010:WorkflowViewState.IdRef="ShowWindow_1" />
+              <ui:MaximizeWindow Window="{x:Null}" DisplayName="Maximize Window" sap2010:WorkflowViewState.IdRef="MaximizeWindow_1" />
+              <Delay Duration="00:00:01" sap2010:WorkflowViewState.IdRef="Delay_1" />
+              <ui:ImageFound DisplayName="Image Exists 'WeChat.exe  WeChat'" Found="[ifWeChatsEnabled]" sap2010:WorkflowViewState.IdRef="ImageFound_1">
+                <ui:ImageFound.Image>
+                  <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAAB8AAAAeCAYAAADU8sWcAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAIeSURBVEhLzZa7TsMwFIaZ6CWpoIVU7VJ6b3oRPABsdADBCAtPgcQOA0jMMLEixIIEQlyEUB/ucI5jJ05y0rRJBQyfEjvH/xdHiZ0luz8C20b6Q0SeK7Ddw2MI6o+6NpWhD0ceBAv/RE6hJBbF1PYNlkT1x8LK6ZFjh5S74ZrEvaFA/3ywcg8KFkcqVkfEJ09MQnl3awC1kzpYlxas3BfAfDEg950B89kQbeqn6x2s82QccXIsEjPF8+7mECqnVTBf85CbZGKhOqqncbzYO58qb467UHgwWUkcNK6529VkjjBC7nzn6rHX91qQ/8yywbNC4zcwh5PbUTNv7/TAfM+xgfNiYE5ruze7vHRbZIOSUropTpPLpRVpHLTZgLRQridHHye3Lsrs4LRY52VN7pu5BDvpm+UGp4VylZiXI8Zbujc8Csrl5dSQ8rSfVxRh+Sg888JjskUljvBjZ+RlXKO5wWlxXrgYeWPcgexkmQ1Ig/OpcXLZUDewdr3OBiSFFi0lDMsD1A+bbEgSxPKKy/XM8spZlQ2aF7Gx7OPGgplBOcHKF/HGiy0Vt2QhJgJydub0wukh+Y+s2BjEn4vWH4XvZ4KkCikUnih57aghZk5rPJ33MEQUD/DacQOsK/yNulsF4wmfzlfMbxTmzSVnUYMQN3gWqF6B7cXKqR3s01HXZY2eQ/yi3NnD9dz/OXMa4La1QaFQ1ccRqHMz6GiP4AfKHtKaMa3qMgAAAABJRU5ErkJggg==" />
+                </ui:ImageFound.Image>
+                <ui:ImageFound.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="3000" WaitForReady="INTERACTIVE" />
+                </ui:ImageFound.Target>
+              </ui:ImageFound>
+              <Delay Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_2" />
+              <WriteLine DisplayName="Write Line" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[ifWeChatsEnabled.ToString]" />
+              <If Condition="[not ifWeChatsEnabled]" sap2010:WorkflowViewState.IdRef="If_1">
+                <If.Then>
+                  <Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'WeChat.exe  WeChat'" sap2010:WorkflowViewState.IdRef="ClickImage_1" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                      <ui:ClickImage.CursorPosition>
+                        <ui:CursorPosition Position="Center">
+                          <ui:CursorPosition.OffsetX>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetX>
+                          <ui:CursorPosition.OffsetY>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:CursorPosition.OffsetY>
+                        </ui:CursorPosition>
+                      </ui:ClickImage.CursorPosition>
+                      <ui:ClickImage.Image>
+                        <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAcCAYAAAAAwr0iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAK/SURBVEhLxVZrTxpBFPXflHVXl0LRgIKKFlOTJq0NqNQvUmtLm1iN4AcRUx+EGH707T13Z3Zn0V13rIkfTuY+5p57mJ0HMznHo0TkFNh+w+MDIJ6US4UbIlEAiNFcCuDHCBSS4k/CFMCBnOOqxhg5oQSEDYxGoaipuB2yrgBGFOiRERPwbPyHAM/L09bWR/p+9IMGg0u6ub2lyWRCNze34iOOvMvzooaPIYsAnii/mG3X86nd3qe7uxEdH/+h7e0mlStVelsokePOywgfceQxD/NR93jzwM4koLJUo8vLIXW7v6m0UDGIkoF5mI+6SqU2lU8VEGxI/Qmq1VX5NVjWOEk2oA71y8wTxTOuwMJimYvvqL7RMIrtUV9vCE9poaxiGQWcnJ7Szs6e2LrguWgxz8nJqfITBej7wKPaSl2+n+PMxQQgp20b5JgHfOCNBDw4BZGAzrdDarZ2w1MQEUW2LZrNXep0Dtl+6hNw4uJiwLu/+qICcEzBa8YS98B4PCY/XwgEGEDO9G0w7xeE14zFBXBA2/f393y5vAsaqhwKxFe2LZ4WYGA4vKK1+kYUUwWwTQIbWH2CI77TW9iEOqYKYJsENog2YRSbcXSDKSwtr8gD4835QUwVwDYJsiJ+DKM4C3D5rKvGmCiTA3S7v2hndy/0A6Ko2AZyEfHFBlv/GEBWIGkVsAeGV1ehL8VqtAGucjzbJb7a4WcW0P66TwcHnXBVpFiNWRE+RjV+jDSHkU8VIN+stiYFfr4oZHigdHEaYs8xP+fSHOBcJgHYhKPRSE7C2VlPzi8eEyxlr9enT5+/0MrqOhWLizTr+ul/SJhvWoD0SROw8X5T7gK8CbBBhIJZd44amx/4mP6kfv+c/l5fy6WV+peM+awFPApdyAjJswDzNdh/eQHwp2MmdF7NMXleQQA/+QDbwCuvgEf/ABzYfZ4GISDiAAAAAElFTkSuQmCC" />
+                      </ui:ClickImage.Image>
+                      <ui:ClickImage.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                      </ui:ClickImage.Target>
+                    </ui:ClickImage>
+                    <Delay Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_3" />
+                  </Sequence>
+                </If.Then>
+              </If>
+              <ui:ClickImage ContinueOnError="{x:Null}" DelayBefore="{x:Null}" DelayMS="{x:Null}" ClickType="CLICK_SINGLE" DisplayName="Click Image 'WeChat.exe  WeChat'" sap2010:WorkflowViewState.IdRef="ClickImage_2" KeyModifiers="None" MouseButton="BTN_LEFT" SendWindowMessages="False">
+                <ui:ClickImage.CursorPosition>
+                  <ui:CursorPosition Position="Center">
+                    <ui:CursorPosition.OffsetX>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetX>
+                    <ui:CursorPosition.OffsetY>
+                      <InArgument x:TypeArguments="x:Int32" />
+                    </ui:CursorPosition.OffsetY>
+                  </ui:CursorPosition>
+                </ui:ClickImage.CursorPosition>
+                <ui:ClickImage.Image>
+                  <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAACkAAAAoCAYAAABjPNNTAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAD8SURBVFhHY3j08MF/7UWugxqPOpJaeNSR1MKjjqQWHnUktTDD41FHUgcPDUc+evgQqwQu/Pvv7/+EwKXX17HqJReT7Ehiwbb7+7HqJwfTzJGEQNzOIqzmY8MD5siaoz1YzceGh4YjH49kRxot9f7/889PKA8TDApHwtR//vUVKoIK6O5IbOqQ8fFn56AqEYDujgQVJ+gYpr7x+ASoKlQwaKL7wOMTUB4mIMmRjx4+wiqBCxML3n5/D2VhBySGJG0cSQiMOpJagKYZB5QZQOmNUuy8Jgqr+dgww+NHpIXkQOBRR1ILjzqSWnjUkdTCo46kFh51JLXwEHCk638APh9ovTrka4MAAAAASUVORK5CYII=" />
+                </ui:ClickImage.Image>
+                <ui:ClickImage.Target>
+                  <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" TimeoutMS="{x:Null}" WaitForReady="INTERACTIVE" />
+                </ui:ClickImage.Target>
+              </ui:ClickImage>
+              <Delay Duration="00:00:03" sap2010:WorkflowViewState.IdRef="Delay_4" />
+            </Sequence>
+            <sap2010:WorkflowViewState.IdRef>Sequence_4</sap2010:WorkflowViewState.IdRef>
+          </Sequence>
+        </ActivityAction>
+      </ui:WindowScope.Body>
+    </ui:WindowScope>
+    <sads:DebugSymbol.Symbol>d2NDOlxVc2Vyc1xqZWZmelxEb2N1bWVudHNcVWlQYXRoXEF1dG9TZW5kaW5nRXZlbnRzb2ZBbnRpcXVlRmFpcnNDaENoXFdlY2hhdFByb2Nlc3NcV2VjaGF0RGV0ZWN0LnhhbWwcOQOFAQ4CAQE6BYMBFgIBAjqTAjrgAgIBH0ALgAEWAgEDQQ1+GAIBBEUPRXsCAR5GD0aHAQIBHUcPR1YCARtID08fAgEWUA9QVgIBFFEPUYYBAgERUg9qFAIBCWsPfB8CAQd9D31WAgEFRx9HKQIBHE1pTW8CARpIVEhoAgEYSj1KQgIBF1AfUCkCARVRZlGDAQIBElIdUjUCAQpUE2geAgEMdz13QgIBCH0ffSkCAQZVFWYlAgEPZxVnXAIBDWFDYUgCARBnJWcvAgEO</sads:DebugSymbol.Symbol>
+  </Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="ShowWindow_1" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="MaximizeWindow_1" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="Delay_1" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="ImageFound_1" sap:VirtualizedContainerService.HintSize="464,106" />
+      <sap2010:ViewStateData Id="Delay_2" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="464,61" />
+      <sap2010:ViewStateData Id="ClickImage_1" sap:VirtualizedContainerService.HintSize="314,106" />
+      <sap2010:ViewStateData Id="Delay_3" sap:VirtualizedContainerService.HintSize="314,22" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="336,292">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="If_1" sap:VirtualizedContainerService.HintSize="464,439" />
+      <sap2010:ViewStateData Id="ClickImage_2" sap:VirtualizedContainerService.HintSize="464,106" />
+      <sap2010:ViewStateData Id="Delay_4" sap:VirtualizedContainerService.HintSize="464,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="486,1266">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="508,1390">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WindowScope_1" sap:VirtualizedContainerService.HintSize="522,1536" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="544,1660">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WechatDetect_1" sap:VirtualizedContainerService.HintSize="584,1740" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</Activity>
